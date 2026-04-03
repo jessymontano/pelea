@@ -6,7 +6,7 @@ var _frames_since_enter := 0
 
 func enter() -> void:
 	player.velocity.y = JUMP_FORCE
-	player.get_node("AnimatedSprite2D").play("jump")
+	player.get_node("Pivot/AnimatedSprite2D").play("jump")
 	_frames_since_enter = 0
 
 func handle_input(_event: InputEvent) -> void:
@@ -18,10 +18,10 @@ func physics_update(_delta: float) -> void:
 	var direction := 0
 	if Input.is_action_pressed("move_left"):
 		direction = -1
-		player.get_node("AnimatedSprite2D").flip_h = true
+		player.get_node("Pivot").scale.x = -1
 	elif Input.is_action_pressed("move_right"):
 		direction = 1
-		player.get_node("AnimatedSprite2D").flip_h = false
+		player.get_node("Pivot").scale.x = 1
 
 	if direction != 0:
 		player.velocity.x = direction * player.SPEED

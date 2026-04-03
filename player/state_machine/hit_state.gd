@@ -9,7 +9,7 @@ var _timer := 0.0
 func enter() -> void:
 	_timer = 0.0
 	player.velocity.x = 0
-	player.get_node("AnimatedSprite2D").play("hit")
+	player.get_node("Pivot/AnimatedSprite2D").play("hit")
 
 func exit() -> void:
 	pass

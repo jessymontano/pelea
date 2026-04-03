@@ -2,11 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://7lrvxolluicf" path="res://assets/background.jpg" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://ci63avcsdhucg" path="res://player/player.tscn" id="1_player_scene"]
+[ext_resource type="PackedScene" uid="uid://5y0yf5c7fhrq" path="res://enemy/enemy.tscn" id="3_feb5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(1194.5, 117.5)
 
 [node name="Game" type="Node2D" unique_id=951806862]
+texture_filter = 1
 
 [node name="Background" type="Sprite2D" parent="." unique_id=834842642]
 position = Vector2(574, 324)
@@ -21,3 +23,20 @@ position = Vector2(190, 400)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2012066754]
 position = Vector2(573, 601)
 shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="EnemyRoute" type="Node2D" parent="." unique_id=744654246]
+
+[node name="PointA" type="Marker2D" parent="EnemyRoute" unique_id=202440130]
+position = Vector2(1048, 517)
+
+[node name="PointB" type="Marker2D" parent="EnemyRoute" unique_id=2030864697]
+position = Vector2(79, 517)
+
+[node name="Enemy" parent="." unique_id=277165318 instance=ExtResource("3_feb5d")]
+position = Vector2(979, 458)
+scale = Vector2(3, 3)
+
+[node name="PatrolState" parent="Enemy/StateMachine" parent_id_path=PackedInt32Array(277165318, 68690518) index="6" unique_id=525629492 node_paths=PackedStringArray("patrol_points")]
+patrol_points = [NodePath("../../../EnemyRoute/PointA"), NodePath("../../../EnemyRoute/PointB")]
+
+[editable path="Enemy"]

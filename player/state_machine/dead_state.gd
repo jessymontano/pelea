@@ -4,7 +4,7 @@ extends State
 
 func enter() -> void:
 	player.velocity = Vector2.ZERO
-	player.get_node("AnimatedSprite2D").play("dead")
+	player.get_node("Pivot/AnimatedSprite2D").play("dead")
 	# Deshabilitar input y física
 	player.set_physics_process(false)
 	player.set_process_input(false)

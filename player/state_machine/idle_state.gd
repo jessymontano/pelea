@@ -3,7 +3,7 @@ class_name IdleState
 
 func enter() -> void:
 	player.velocity.x = 0
-	player.get_node("AnimatedSprite2D").play("idle")
+	player.get_node("Pivot/AnimatedSprite2D").play("idle")
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
