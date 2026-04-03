@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cdq1m2snooqgi"]
+
+[ext_resource type="Script" uid="uid://bcpdltugbhsfr" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://7lrvxolluicf" path="res://assets/background.jpg" id="2_7vrkn"]
+
+[node name="MainMenu" type="Control" unique_id=1848870333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1993410675]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("2_7vrkn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1058075903]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.3529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1328178494]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -41.5
+offset_right = 28.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1666395135]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Pelea"
+horizontal_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer" unique_id=2058842284]
+custom_minimum_size = Vector2(350, 20)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=589948381]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Jugar"
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="VBoxContainer" unique_id=1448957282]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1328603912]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Salir"
+
+[node name="VSplitContainer3" type="VSplitContainer" parent="VBoxContainer" unique_id=2134000245]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Credits" type="Label" parent="VBoxContainer" unique_id=2135626095]
+layout_mode = 2
+text = "Desarrollado por:
+Matus Valencia Elda Berenice
+Montaño Lares Jessica"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
