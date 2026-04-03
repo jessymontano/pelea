@@ -307,7 +307,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c35mf")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 10.0
 }, {
@@ -366,7 +366,7 @@ script = ExtResource("scr_player")
 position = Vector2(0, -40)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SF_player")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1448411684]

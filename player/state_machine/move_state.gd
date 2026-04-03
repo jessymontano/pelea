@@ -1,16 +1,14 @@
-# move_state.gd - El personaje camina
-class_name MoveState
 extends State
+class_name MoveState
 
 func enter() -> void:
 	player.get_node("AnimatedSprite2D").play("walk")
 
-func exit() -> void:
-	pass
-
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack"):
 		state_machine.transition_to("Attack")
+	elif Input.is_action_just_pressed("jump"):
+		state_machine.transition_to("Jump")
 
 func physics_update(_delta: float) -> void:
 	var direction := 0
