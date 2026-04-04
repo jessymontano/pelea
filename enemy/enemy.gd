@@ -11,11 +11,14 @@ var player: Node2D
 
 @onready var animated_sprite = $Pivot/AnimatedSprite2D
 @onready var state_machine = $StateMachine
+@onready var health_bar: TextureProgressBar = $TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("Player")
+	health_bar.max_value = max_health
+	health_bar.value = current_health
 	
 	for state in state_machine.get_children():
 		if "enemy" in state:
@@ -23,6 +26,7 @@ func _ready() -> void:
 
 func take_damage(amount: int):
 	current_health -= amount
+	health_bar.value = current_health
 	flash_red()
 	if current_health <= 0:
 		$StateMachine.on_child_transition($StateMachine.current_state, "DeadState")

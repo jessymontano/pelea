@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://631s6ifevidw" path="res://enemy/state_machine/hit_state.gd" id="14_pg32h"]
 [ext_resource type="Script" uid="uid://b7q3e3d1afotc" path="res://enemy/state_machine/jump_state.gd" id="15_nfy00"]
 [ext_resource type="Script" uid="uid://dtnc6rasrvtqf" path="res://enemy/state_machine/patrol_state.gd" id="16_iocd2"]
+[ext_resource type="Texture2D" uid="uid://cmtjiapegq0py" path="res://assets/sprites/gui/healthbarUnder.png" id="17_c6eq3"]
+[ext_resource type="Texture2D" uid="uid://br7ni264hf3ox" path="res://assets/sprites/gui/healthbarProgress.png" id="18_34gv7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_64lv0"]
 radius = 6.0827627
@@ -462,5 +464,14 @@ animation = &"attack_2"
 position = Vector2(16, 3)
 shape = SubResource("RectangleShape2D_wjonb")
 disabled = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1370440733]
+offset_left = -16.0
+offset_top = -12.0
+offset_right = 48.0
+offset_bottom = 28.0
+scale = Vector2(0.5, 0.5)
+texture_under = ExtResource("17_c6eq3")
+texture_progress = ExtResource("18_34gv7")
 
 [connection signal="body_entered" from="Pivot/Hitbox" to="." method="_on_hitbox_body_entered"]

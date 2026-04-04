@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+signal health_changed
+
 const SPEED   := 180.0
 const GRAVITY := 980.0
 const MAX_HP  := 100
@@ -24,6 +26,7 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	health  = max(health, 0)
 	print("HP: ", health)
+	health_changed.emit()
 	sm.transition_to("Hit")
 
 # parpadear rojo cuando le pegan

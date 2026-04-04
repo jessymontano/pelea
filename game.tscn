@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://7lrvxolluicf" path="res://assets/background.jpg" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://ci63avcsdhucg" path="res://player/player.tscn" id="1_player_scene"]
 [ext_resource type="PackedScene" uid="uid://5y0yf5c7fhrq" path="res://enemy/enemy.tscn" id="3_feb5d"]
+[ext_resource type="Texture2D" uid="uid://cmtjiapegq0py" path="res://assets/sprites/gui/healthbarUnder.png" id="4_ryrav"]
+[ext_resource type="Texture2D" uid="uid://br7ni264hf3ox" path="res://assets/sprites/gui/healthbarProgress.png" id="5_eow3j"]
+[ext_resource type="Script" uid="uid://blhodc7s5b1w2" path="res://progress_bar.gd" id="6_j5wjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(1194.5, 117.5)
@@ -38,5 +41,22 @@ scale = Vector2(3, 3)
 
 [node name="PatrolState" parent="Enemy/StateMachine" parent_id_path=PackedInt32Array(277165318, 68690518) index="6" unique_id=525629492 node_paths=PackedStringArray("patrol_points")]
 patrol_points = [NodePath("../../../EnemyRoute/PointA"), NodePath("../../../EnemyRoute/PointB")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464201334]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=270318386 node_paths=PackedStringArray("player")]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -40.0
+offset_right = 91.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture_under = ExtResource("4_ryrav")
+texture_progress = ExtResource("5_eow3j")
+script = ExtResource("6_j5wjh")
+player = NodePath("../../Player")
 
 [editable path="Enemy"]
